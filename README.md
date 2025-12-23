@@ -1,18 +1,58 @@
-## Getting Started
+# 🎓 Student Management System (Java + JDBC)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A console-based **Student Management System** built using **Java** and **JDBC** that allows Students, Teachers, and Management to interact with a MySQL database through role-based menus and perform CRUD operations.
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+## 📌 Project Overview
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+This project demonstrates:
+- Java–MySQL connectivity using JDBC
+- Role-based menu-driven application
+- CRUD operations on multiple tables
+- Practical use of PreparedStatement and ResultSet
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Users can log in as:
+- 👨‍🎓 Student  
+- 👩‍🏫 Teacher  
+- 🏫 Management  
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Each role has access to different operations.
 
-## Dependency Management
+---
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## ⚙️ Tech Stack
+
+- **Language:** Java  
+- **Database:** MySQL  
+- **Connectivity:** JDBC (MySQL Connector/J)  
+- **JDK:** 8 or above  
+- **IDE:** VS Code / IntelliJ / Eclipse  
+
+---
+
+## ✨ Features
+
+### 👨‍🎓 Student
+- View personal details using Roll Number.
+
+### 👩‍🏫 Teacher
+- Insert new student  
+- Display all students  
+- Update student section  
+- Delete student record  
+
+### 🏫 Management
+- Student operations  
+- Course CRUD operations  
+- Teacher CRUD operations  
+
+### 🗃️ Database Tables
+- `STUDENTS`
+- `COURSE`
+- `TEACHER`
+
+---
+
+## 🗂️ Project Structure
+
