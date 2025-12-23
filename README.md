@@ -55,4 +55,9 @@ Each role has access to different operations.
 ---
 
 ## 🗂️ Project Structure
+├── App.java
+├── README.md
+└── lib/
+└── mysql-connector-j.jar
+
 
