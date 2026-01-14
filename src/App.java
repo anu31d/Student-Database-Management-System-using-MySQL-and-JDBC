@@ -5,6 +5,84 @@ public class App
 {
     static Connection con;
     static Scanner sc = new Scanner(System.in);
+    
+    // ANSI Color Codes
+    static final String RESET = "\u001B[0m";
+    static final String BLUE = "\u001B[34m";
+    static final String GREEN = "\u001B[32m";
+    static final String YELLOW = "\u001B[33m";
+    static final String RED = "\u001B[31m";
+    static final String CYAN = "\u001B[36m";
+    static final String BOLD = "\u001B[1m";
+    
+    // Utility methods for formatted output
+    static void printHeader(String title) {
+        System.out.println("\n" + CYAN + "═══════════════════════════════════════════════════════" + RESET);
+        System.out.println(BOLD + CYAN + "   " + title + RESET);
+        System.out.println(CYAN + "═══════════════════════════════════════════════════════" + RESET);
+    }
+    
+    static void printSubHeader(String title) {
+        System.out.println("\n" + BLUE + "╔═══════════════════════════════════════════════════════╗" + RESET);
+        System.out.println(BLUE + "║" + RESET + BOLD + "  " + title + RESET);
+        System.out.println(BLUE + "╚═══════════════════════════════════════════════════════╝" + RESET);
+    }
+    
+    static void printSuccess(String message) {
+        System.out.println(GREEN + "✓ " + message + RESET);
+    }
+    
+    static void printError(String message) {
+        System.out.println(RED + "✗ " + message + RESET);
+    }
+    
+    static void printInfo(String message) {
+        System.out.println(YELLOW + "ℹ " + message + RESET);
+    }
+    
+    static void printLine() {
+        System.out.println(BLUE + "───────────────────────────────────────────────────────" + RESET);
+    }
+    
+    static void printTableRow(String... columns) {
+        System.out.print(BLUE + "│" + RESET);
+        for (String col : columns) {
+            System.out.printf(" %-18s " + BLUE + "│" + RESET, col);
+        }
+        System.out.println();
+    }
+    
+    static void printTableHeader(String... headers) {
+        System.out.println(BLUE + "┌────────────────────┬────────────────────┬────────────────────┬────────────────────┐" + RESET);
+        printTableRow(headers);
+        System.out.println(BLUE + "├────────────────────┼────────────────────┼────────────────────┼────────────────────┤" + RESET);
+    }
+    
+    static void printTableFooter() {
+        System.out.println(BLUE + "└────────────────────┴────────────────────┴────────────────────┴────────────────────┘" + RESET);
+    }
+    
+    static void printTableHeader3(String... headers) {
+        System.out.println(BLUE + "┌────────────────────┬────────────────────┬────────────────────┐" + RESET);
+        System.out.print(BLUE + "│" + RESET);
+        for (String header : headers) {
+            System.out.printf(" %-18s " + BLUE + "│" + RESET, header);
+        }
+        System.out.println();
+        System.out.println(BLUE + "├────────────────────┼────────────────────┼────────────────────┤" + RESET);
+    }
+    
+    static void printTableFooter3() {
+        System.out.println(BLUE + "└────────────────────┴────────────────────┴────────────────────┘" + RESET);
+    }
+    
+    static void printTableRow3(String... columns) {
+        System.out.print(BLUE + "│" + RESET);
+        for (String col : columns) {
+            System.out.printf(" %-18s " + BLUE + "│" + RESET, col);
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args)
     {
@@ -16,16 +94,17 @@ public class App
         {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, user, password);
-            System.out.println("Connection Successful");
+            printSuccess("Database Connected Successfully!");
 
             while (true)
             {
-                System.out.println("\nCHOOSE YOUR ROLE");
-                System.out.println("1. Student");
-                System.out.println("2. Teacher");
-                System.out.println("3. Management");
-                System.out.println("4. Exit");
-                System.out.print("Enter choice: ");
+                printHeader("STUDENT MANAGEMENT SYSTEM");
+                System.out.println("\n  " + BOLD + "Choose Your Role:" + RESET);
+                System.out.println("  " + YELLOW + "[1]" + RESET + " Student");
+                System.out.println("  " + YELLOW + "[2]" + RESET + " Teacher");
+                System.out.println("  " + YELLOW + "[3]" + RESET + " Management");
+                System.out.println("  " + YELLOW + "[4]" + RESET + " Exit");
+                System.out.print("\n  " + CYAN + "➤" + RESET + " Enter your choice: ");
 
                 int role = sc.nextInt();
 
@@ -52,13 +131,15 @@ public class App
                     case 4:
                     {
                         con.close();
-                        System.out.println("Exited Successfully");
+                        printLine();
+                        printSuccess("System Exited Successfully. Goodbye!");
+                        printLine();
                         return;
                     }
 
                     default:
                     {
-                        System.out.println("Invalid Choice");
+                        printError("Invalid Choice! Please select 1-4.");
                     }
                 }
             }
@@ -73,7 +154,8 @@ public class App
 
     static void studentMenu()
     {
-        System.out.print("Enter Roll Number: ");
+        printSubHeader("STUDENT PORTAL");
+        System.out.print("  " + CYAN + "➤" + RESET + " Enter Roll Number: ");
         int roll = sc.nextInt();
 
         try
@@ -88,18 +170,24 @@ public class App
 
             if (rs.next())
             {
-                System.out.println("\nROLL NO : " + rs.getInt("ROLL_NO"));
-                System.out.println("NAME    : " + rs.getString("NAME"));
-                System.out.println("DEPT    : " + rs.getString("DEPARTMENT"));
-                System.out.println("SECTION : " + rs.getString("SECTION"));
+                System.out.println();
+                printLine();
+                System.out.println(BOLD + "  Student Information" + RESET);
+                printLine();
+                System.out.println("  Roll No    : " + YELLOW + rs.getInt("ROLL_NO") + RESET);
+                System.out.println("  Name       : " + YELLOW + rs.getString("NAME") + RESET);
+                System.out.println("  Department : " + YELLOW + rs.getString("DEPARTMENT") + RESET);
+                System.out.println("  Section    : " + YELLOW + rs.getString("SECTION") + RESET);
+                printLine();
             }
             else
             {
-                System.out.println("Student not found");
+                printError("Student not found with Roll No: " + roll);
             }
         }
         catch (Exception e)
         {
+            printError("Error retrieving student information!");
             e.printStackTrace();
         }
     }
@@ -110,13 +198,13 @@ public class App
     {
         while (true)
         {
-            System.out.println("\n--- TEACHER MENU ---");
-            System.out.println("1. Insert Student");
-            System.out.println("2. Display Students");
-            System.out.println("3. Update Student Section");
-            System.out.println("4. Delete Student");
-            System.out.println("5. Back");
-            System.out.print("Enter choice: ");
+            printSubHeader("TEACHER PORTAL - Student Management");
+            System.out.println("  " + YELLOW + "[1]" + RESET + " Insert Student");
+            System.out.println("  " + YELLOW + "[2]" + RESET + " Display Students");
+            System.out.println("  " + YELLOW + "[3]" + RESET + " Update Student Section");
+            System.out.println("  " + YELLOW + "[4]" + RESET + " Delete Student");
+            System.out.println("  " + YELLOW + "[5]" + RESET + " Back to Main Menu");
+            System.out.print("\n  " + CYAN + "➤" + RESET + " Enter your choice: ");
 
             int ch = sc.nextInt();
 
@@ -160,12 +248,12 @@ public class App
     {
         while (true)
         {
-            System.out.println("\n--- MANAGEMENT MENU ---");
-            System.out.println("1. Student Operations");
-            System.out.println("2. Course Operations");
-            System.out.println("3. Teacher Operations");
-            System.out.println("4. Back");
-            System.out.print("Enter choice: ");
+            printSubHeader("MANAGEMENT PORTAL");
+            System.out.println("  " + YELLOW + "[1]" + RESET + " Student Operations");
+            System.out.println("  " + YELLOW + "[2]" + RESET + " Course Operations");
+            System.out.println("  " + YELLOW + "[3]" + RESET + " Teacher Operations");
+            System.out.println("  " + YELLOW + "[4]" + RESET + " Back to Main Menu");
+            System.out.print("\n  " + CYAN + "➤" + RESET + " Enter your choice: ");
 
             int ch = sc.nextInt();
 
@@ -203,16 +291,17 @@ public class App
     {
         try
         {
-            System.out.print("Roll: ");
+            printInfo("Enter Student Details:");
+            System.out.print("  Roll Number: ");
             int roll = sc.nextInt();
 
-            System.out.print("Name: ");
+            System.out.print("  Name: ");
             String name = sc.next();
 
-            System.out.print("Department: ");
+            System.out.print("  Department: ");
             String dept = sc.next();
 
-            System.out.print("Section: ");
+            System.out.print("  Section: ");
             String sec = sc.next();
 
             String query =
@@ -225,10 +314,11 @@ public class App
             ps.setString(4, sec);
 
             ps.executeUpdate();
-            System.out.println("Student Inserted");
+            printSuccess("Student Inserted Successfully!");
         }
         catch (Exception e)
         {
+            printError("Error inserting student!");
             e.printStackTrace();
         }
     }
@@ -241,20 +331,26 @@ public class App
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query);
 
-            System.out.println("\nROLL  NAME  DEPT  SECTION");
+            System.out.println();
+            printTableHeader("ROLL NO", "NAME", "DEPARTMENT", "SECTION");
 
+            int count = 0;
             while (rs.next())
             {
-                System.out.println(
-                        rs.getInt("ROLL_NO") + "   " +
-                        rs.getString("NAME") + "   " +
-                        rs.getString("DEPARTMENT") + "   " +
+                printTableRow(
+                        String.valueOf(rs.getInt("ROLL_NO")),
+                        rs.getString("NAME"),
+                        rs.getString("DEPARTMENT"),
                         rs.getString("SECTION")
                 );
+                count++;
             }
+            printTableFooter();
+            printInfo("Total Students: " + count);
         }
         catch (Exception e)
         {
+            printError("Error displaying students!");
             e.printStackTrace();
         }
     }
@@ -263,10 +359,11 @@ public class App
     {
         try
         {
-            System.out.print("Enter Roll No: ");
+            printInfo("Update Student Section:");
+            System.out.print("  Enter Roll No: ");
             int roll = sc.nextInt();
 
-            System.out.print("New Section: ");
+            System.out.print("  New Section: ");
             String sec = sc.next();
 
             String query =
@@ -276,11 +373,16 @@ public class App
             ps.setString(1, sec);
             ps.setInt(2, roll);
 
-            ps.executeUpdate();
-            System.out.println("Student Updated");
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                printSuccess("Student Section Updated Successfully!");
+            } else {
+                printError("Student not found with Roll No: " + roll);
+            }
         }
         catch (Exception e)
         {
+            printError("Error updating student!");
             e.printStackTrace();
         }
     }
@@ -289,7 +391,8 @@ public class App
     {
         try
         {
-            System.out.print("Enter Roll No: ");
+            printInfo("Delete Student:");
+            System.out.print("  Enter Roll No: ");
             int roll = sc.nextInt();
 
             String query =
@@ -298,11 +401,16 @@ public class App
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, roll);
 
-            ps.executeUpdate();
-            System.out.println("Student Deleted");
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                printSuccess("Student Deleted Successfully!");
+            } else {
+                printError("Student not found with Roll No: " + roll);
+            }
         }
         catch (Exception e)
         {
+            printError("Error deleting student!");
             e.printStackTrace();
         }
     }
@@ -313,12 +421,12 @@ public class App
     {
         while (true)
         {
-            System.out.println("\n--- COURSE MENU ---");
-            System.out.println("1. Insert Course");
-            System.out.println("2. Display Courses");
-            System.out.println("3. Delete Course");
-            System.out.println("4. Back");
-            System.out.print("Enter choice: ");
+            printSubHeader("COURSE MANAGEMENT");
+            System.out.println("  " + YELLOW + "[1]" + RESET + " Insert Course");
+            System.out.println("  " + YELLOW + "[2]" + RESET + " Display Courses");
+            System.out.println("  " + YELLOW + "[3]" + RESET + " Delete Course");
+            System.out.println("  " + YELLOW + "[4]" + RESET + " Back");
+            System.out.print("\n  " + CYAN + "➤" + RESET + " Enter your choice: ");
 
             int ch = sc.nextInt();
 
@@ -354,13 +462,14 @@ public class App
     {
         try
         {
-            System.out.print("Department: ");
+            printInfo("Enter Course Details:");
+            System.out.print("  Department: ");
             String dept = sc.next();
 
-            System.out.print("Course Name: ");
+            System.out.print("  Course Name: ");
             String cname = sc.next();
 
-            System.out.print("Course ID: ");
+            System.out.print("  Course ID: ");
             String cid = sc.next();
 
             String query =
@@ -372,10 +481,11 @@ public class App
             ps.setString(3, cid);
 
             ps.executeUpdate();
-            System.out.println("Course Inserted");
+            printSuccess("Course Inserted Successfully!");
         }
         catch (Exception e)
         {
+            printError("Error inserting course!");
             e.printStackTrace();
         }
     }
@@ -386,18 +496,26 @@ public class App
             String query = "SELECT * FROM COURSE";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query);
-            System.out.println("\nDEPARTMENT  COURSE NAME  COURSE ID");
+            
+            System.out.println();
+            printTableHeader3("DEPARTMENT", "COURSE NAME", "COURSE ID");
+            
+            int count = 0;
             while (rs.next())
             {
-                System.out.println(
-                        rs.getString(("DEPARTMENT") + "   " )+
-                        rs.getString(("COURSE_NAME") + "   ") +
+                printTableRow3(
+                        rs.getString("DEPARTMENT"),
+                        rs.getString("COURSE_NAME"),
                         rs.getString("COURSE_ID")
                 );
+                count++;
             }
+            printTableFooter3();
+            printInfo("Total Courses: " + count);
         }
         catch (Exception e)
         {
+            printError("Error displaying courses!");
             e.printStackTrace();
         }
     }
@@ -406,7 +524,8 @@ public class App
     {
         try
         {
-            System.out.print("Course ID: ");
+            printInfo("Delete Course:");
+            System.out.print("  Course ID: ");
             String cid = sc.next();
 
             String query =
@@ -415,11 +534,16 @@ public class App
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, cid);
 
-            ps.executeUpdate();
-            System.out.println("Course Deleted");
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                printSuccess("Course Deleted Successfully!");
+            } else {
+                printError("Course not found with ID: " + cid);
+            }
         }
         catch (Exception e)
         {
+            printError("Error deleting course!");
             e.printStackTrace();
         }
     }
@@ -430,12 +554,12 @@ public class App
     {
         while (true)
         {
-            System.out.println("\n--- TEACHER MENU ---");
-            System.out.println("1. Insert Teacher");
-            System.out.println("2. Display Teachers");
-            System.out.println("3. Delete Teacher");
-            System.out.println("4. Back");
-            System.out.print("Enter choice: ");
+            printSubHeader("TEACHER MANAGEMENT");
+            System.out.println("  " + YELLOW + "[1]" + RESET + " Insert Teacher");
+            System.out.println("  " + YELLOW + "[2]" + RESET + " Display Teachers");
+            System.out.println("  " + YELLOW + "[3]" + RESET + " Delete Teacher");
+            System.out.println("  " + YELLOW + "[4]" + RESET + " Back");
+            System.out.print("\n  " + CYAN + "➤" + RESET + " Enter your choice: ");
 
             int ch = sc.nextInt();
 
@@ -471,13 +595,14 @@ public class App
     {
         try
         {
-            System.out.print("Teacher ID: ");
+            printInfo("Enter Teacher Details:");
+            System.out.print("  Teacher ID: ");
             int tid = sc.nextInt();
 
-            System.out.print("Teacher Name: ");
+            System.out.print("  Teacher Name: ");
             String tname = sc.next();
 
-            System.out.print("Course ID: ");
+            System.out.print("  Course ID: ");
             String cid = sc.next();
 
             String query =
@@ -489,10 +614,11 @@ public class App
             ps.setInt(3, tid);
 
             ps.executeUpdate();
-            System.out.println("Teacher Inserted");
+            printSuccess("Teacher Inserted Successfully!");
         }
         catch (Exception e)
         {
+            printError("Error inserting teacher!");
             e.printStackTrace();
         }
     }
@@ -505,19 +631,25 @@ public class App
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(query);
 
-            System.out.println("\nTEACHER ID  NAME  COURSE ID");
+            System.out.println();
+            printTableHeader3("TEACHER ID", "NAME", "COURSE ID");
 
+            int count = 0;
             while (rs.next())
             {
-                System.out.println(
-                        rs.getInt("TEACHER_ID") + "   " +
-                        rs.getString("TEACHER_NAME") + "   " +
+                printTableRow3(
+                        String.valueOf(rs.getInt("TEACHER_ID")),
+                        rs.getString("TEACHER_NAME"),
                         rs.getString("COURSE_ID")
                 );
+                count++;
             }
+            printTableFooter3();
+            printInfo("Total Teachers: " + count);
         }
         catch (Exception e)
         {
+            printError("Error displaying teachers!");
             e.printStackTrace();
         }
     }
@@ -526,7 +658,8 @@ public class App
     {
         try
         {
-            System.out.print("Teacher ID: ");
+            printInfo("Delete Teacher:");
+            System.out.print("  Teacher ID: ");
             int tid = sc.nextInt();
 
             String query = "DELETE FROM TEACHER WHERE TEACHER_ID = ?";
@@ -534,11 +667,16 @@ public class App
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, tid);
 
-            ps.executeUpdate();
-            System.out.println("Teacher Deleted");
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                printSuccess("Teacher Deleted Successfully!");
+            } else {
+                printError("Teacher not found with ID: " + tid);
+            }
         }
         catch (Exception e)
         {
+            printError("Error deleting teacher!");
             e.printStackTrace();
         }
     }
