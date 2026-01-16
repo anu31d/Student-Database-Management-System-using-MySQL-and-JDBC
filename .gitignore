@@ -1,6 +1,10 @@
 # Compiled class files
 *.class
 
+# Configuration files - NEVER commit!
+db.config
+*.config
+
 # Log files
 *.log
 

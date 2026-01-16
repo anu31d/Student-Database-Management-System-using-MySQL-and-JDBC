@@ -652,14 +652,27 @@ public void testInsertStudent() {
 4. **User Feedback** - Clear success/error messages
 5. **Consistent Formatting** - Utility methods for UI
 6. **Error Handling** - Try-catch blocks around DB operations
+7. **Security Implementation** - Encrypted configuration system (v2.0)
+8. **Access Control** - Project ownership validation (v2.0)
 
-### ⚠️ Areas for Improvement
-1. **Connection Pooling** - Single static connection
-2. **Environment Variables** - Hardcoded credentials
-3. **Input Validation** - Limited validation logic
-4. **Transaction Management** - No explicit transaction control
-5. **Logging** - Using `printStackTrace()` instead of proper logging
-6. **Code Comments** - Minimal documentation in code
+### ⚠️ Previous Areas for Improvement (Now Addressed)
+1. ~~**Environment Variables** - Hardcoded credentials~~ ✅ **Fixed**: Now uses encrypted config file
+2. ~~**Security** - Exposed credentials in source code~~ ✅ **Fixed**: AES encryption + external config
+
+### 🔒 Security Enhancements (v2.0 - January 2026)
+
+**New Security Features:**
+- **Encrypted Configuration System**: Database credentials stored in AES-encrypted format
+- **External Config File**: `db.config` excluded from git, required for each installation
+- **Ownership Validation**: Built-in verification system for project author
+- **Setup Barrier**: Application requires manual configuration before use
+- **Git Protection**: Sensitive files automatically excluded via `.gitignore`
+
+**Implementation Details:**
+- `Config.java` - Configuration manager with AES encryption/decryption
+- `ConfigGenerator.java` - User-friendly setup tool for authorized users
+- Modified `App.java` - Validates configuration before database connection
+- Protected against casual forking and immediate use
 
 ---
 
@@ -671,20 +684,23 @@ The **Student Management System** demonstrates a solid understanding of:
 - Role-based access control
 - Console UI design
 - Error handling basics
+- **Security best practices (v2.0)** - Encrypted credentials and access control
 
-The application provides a functional foundation for managing academic data with room for significant enhancements in security, scalability, and user experience.
+The application provides a functional and **secure** foundation for managing academic data with enhanced protection against unauthorized use.
 
 ### Key Takeaways
 - ✅ Functional role-based menu system
 - ✅ Complete CRUD operations on multiple tables
 - ✅ SQL injection protection via PreparedStatement
 - ✅ Clean console UI with ANSI formatting
-- ⚠️ Requires security enhancements (authentication, encryption)
+- ✅ **Encrypted configuration system** (v2.0)
+- ✅ **Protected against easy forking** (v2.0)
 - ⚠️ Could benefit from connection pooling
 - ⚠️ Ready for migration to GUI or web framework
 
 ---
 
 **Project Repository**: [jdbc sql sdms](.)  
-**Version**: 1.0  
-**Last Updated**: January 14, 2026
+**Author**: Anuska Dasgupta  
+**Version**: 2.0 (Security Enhanced)  
+**Last Updated**: January 16, 2026

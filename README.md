@@ -75,78 +75,26 @@ The system uses the following tables:
 - Course ID (Foreign Key)
 
 ---
+## 🔒 Security Features
 
-## 🚀 Getting Started
+- **Encrypted Configuration**: Database credentials stored in encrypted format using AES encryption
+- **Environment Validation**: Project ownership verification system
+- **Secure Setup**: One-time configuration required per installation
+- **Protected Access**: Requires manual configuration - cannot be used by simply forking
+- **Git Protection**: Sensitive config files automatically excluded from version control
 
-### Prerequisites
-- Java Development Kit (JDK) 8 or higher
-- MySQL Server 5.7 or higher
-- MySQL Connector/J (JDBC Driver)
-- Git (for cloning the repository)
-
-### Installation Steps
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/jdbc-sql-sdms.git
-   cd jdbc-sql-sdms
-   ```
-
-2. **Set Up MySQL Database**
-   - Create a database named `student_db`
-   - Run the SQL scripts to create tables
-   - Configure database credentials in the application
-
-3. **Configure JDBC Connection**
-   - Update database URL, username, and password in the source code
-   - Ensure MySQL Connector/J is in the classpath
-
-4. **Compile and Run**
-   ```bash
-   cd project/src
-   javac -cp "../lib/*" App.java
-   java -cp "../lib/*;." App
-   ```
+**Important**: This project requires initial setup. Simply forking the repository will not provide a working copy. See [SETUP.md](SETUP.md) for authorized setup instructions.
 
 ---
-
-## 💡 Usage
-
-1. Run the application
-2. Select your role (Student/Teacher/Management)
-3. Follow the menu-driven interface
-4. Perform desired operations
-5. Exit when done
-
----
-
-## 📸 Screenshots
+## � Screenshots
 
 Check the `screenshots/` folder for application demos and output examples.
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
 ## 📝 License
 
-This project is open source and available for educational purposes.
-
----
-
-## 📧 Contact
-
-For questions or suggestions, please open an issue in the repository.
+This project is created by Anuska Dasgupta and is available for educational purposes.
 
 ---
 
