@@ -86,9 +86,26 @@ public class App
 
     public static void main(String[] args)
     {
-        String url = "jdbc:mysql://localhost:3306/STUDENT_MANAGEMENT_SYSTEM";
-        String user = "root";
-        String password = "Ikigai@2603!";
+        if (!Config.initialize()) {
+            printError("Configuration initialization failed!");
+            printInfo("Setup required: Run ConfigGenerator first.");
+            printInfo("Contact: Anuska Dasgupta");
+            return;
+        }
+        
+        if (!Config.validate()) {
+            printError("Invalid project configuration!");
+            return;
+        }
+        
+        String url = Config.getDbUrl();
+        String user = Config.getDbUser();
+        String password = Config.getDbPassword();
+        
+        if (url == null || user == null || password == null) {
+            printError("Configuration error: Missing database credentials!");
+            return;
+        }
 
         try
         {
