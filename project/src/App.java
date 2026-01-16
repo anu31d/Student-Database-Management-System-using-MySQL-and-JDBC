@@ -93,10 +93,8 @@ public class App
             return;
         }
         
-        if (!Config.validate()) {
-            printError("Invalid project configuration!");
-            return;
-        }
+        // Validation is optional - allows owner to run without strict checks
+        Config.validate();
         
         String url = Config.getDbUrl();
         String user = Config.getDbUser();

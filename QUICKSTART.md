@@ -27,14 +27,21 @@
 
 ## 🚀 How to Run Your Project
 
-### For You (Already Configured):
+### For You (Project Owner - Already Configured):
+
+Your `db.config` is already set up with encrypted credentials. Just run:
+
 ```bash
 cd "c:\Users\anusk\OneDrive\Desktop\github\jdbc sql sdms\project\src"
-javac -cp "../lib/*" *.java
-java -cp "../lib/*;." App
+java -cp ".;..\lib\mysql-connector-j-9.5.0.jar" App
 ```
 
-Your application will work normally - it will load credentials from the encrypted `db.config` file.
+**Note**: If you need to recompile:
+```bash
+javac -cp ".;..\lib\mysql-connector-j-9.5.0.jar" *.java
+```
+
+Your application will work normally - it loads credentials from the encrypted `db.config` file.
 
 ---
 

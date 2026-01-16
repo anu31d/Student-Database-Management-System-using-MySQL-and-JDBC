@@ -83,7 +83,25 @@ The system uses the following tables:
 - **Protected Access**: Requires manual configuration - cannot be used by simply forking
 - **Git Protection**: Sensitive config files automatically excluded from version control
 
-**Important**: This project requires initial setup. Simply forking the repository will not provide a working copy. See [SETUP.md](SETUP.md) for authorized setup instructions.
+### For the Project Owner (You)
+
+Your `db.config` file is already set up with encrypted credentials. The project will run normally:
+
+```bash
+cd project/src
+java -cp ".;..\lib\mysql-connector-j-9.5.0.jar" App
+```
+
+### For Others Who Fork This Repository
+
+Simply forking will **NOT** provide a working copy. The `db.config` file is excluded from git for security.
+
+**They must:**
+1. Have their own MySQL database set up
+2. Run `ConfigGenerator` to create their own `db.config`
+3. Provide their own database credentials
+
+**See [SETUP.md](SETUP.md) for setup instructions.**
 
 ---
 ## � Screenshots

@@ -1,0 +1,18 @@
+# Database Configuration Template
+# DO NOT USE THIS FILE DIRECTLY!
+# This is a template showing the format of the config file.
+#
+# TO SET UP:
+# 1. cd project/src
+# 2. javac -cp "../lib/*" Config.java ConfigGenerator.java
+# 3. java -cp "../lib/*;." ConfigGenerator
+# 4. Follow the prompts to create your own encrypted db.config
+#
+# The actual db.config file will be auto-generated with encrypted values
+# and will NOT be included in the repository.
+
+# Format (encrypted by ConfigGenerator):
+# db.url=<encrypted_database_url>
+# db.user=<encrypted_username>
+# db.pass=<encrypted_password>
+# project.owner=<encrypted_ownership_validation>

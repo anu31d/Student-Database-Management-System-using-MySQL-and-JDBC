@@ -23,8 +23,19 @@ public class Config {
             
             File configFile = new File(CONFIG_FILE);
             if (!configFile.exists()) {
-                System.err.println("Configuration file not found. Please create 'db.config' file.");
-                System.err.println("Contact the project owner for setup instructions.");
+                System.err.println("\n" + "=".repeat(60));
+                System.err.println("⚠  CONFIGURATION FILE NOT FOUND");
+                System.err.println("=".repeat(60));
+                System.err.println("\nThe 'db.config' file is required to run this application.");
+                System.err.println("This file is NOT included in the repository for security.");
+                System.err.println("\nTO SET UP:");
+                System.err.println("  1. Navigate to: project/src");
+                System.err.println("  2. Compile: javac -cp \"../lib/*\" Config.java ConfigGenerator.java");
+                System.err.println("  3. Run: java -cp \"../lib/*;.\" ConfigGenerator");
+                System.err.println("  4. Follow prompts to enter your MySQL database credentials");
+                System.err.println("\nNote: You need your own MySQL database setup first.");
+                System.err.println("See SETUP.md for detailed instructions.");
+                System.err.println("=".repeat(60) + "\n");
                 return false;
             }
             
@@ -32,7 +43,9 @@ public class Config {
             props.load(new FileInputStream(configFile));
             
             if (!props.containsKey("db.url") || !props.containsKey("db.user") || !props.containsKey("db.pass")) {
-                System.err.println("Invalid configuration file format.");
+                System.err.println("\n⚠  Invalid configuration file format.");
+                System.err.println("The db.config file appears to be corrupted or incomplete.");
+                System.err.println("Please re-run ConfigGenerator to create a new configuration.\n");
                 return false;
             }
             

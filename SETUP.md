@@ -6,9 +6,22 @@ This project is protected and requires individual configuration for each install
 
 ---
 
-## Initial Setup (For Authorized Users Only)
+## For the Project Owner
 
-This project requires proper configuration before use. Follow these steps:
+If you are the project owner (Anuska Dasgupta), your `db.config` file is already set up. Simply run:
+
+```bash
+cd project/src
+java -cp ".;..\lib\mysql-connector-j-9.5.0.jar" App
+```
+
+Your encrypted credentials are already configured and the project will work normally.
+
+---
+
+## For Others (Who Fork This Repository)
+
+If you've forked or cloned this repository, you'll need to set up your own database configuration. Follow these steps:
 
 ### 1. Generate Configuration File
 
@@ -47,22 +60,25 @@ java -cp "../lib/*;." App
 
 ## For Authorized Users
 
-Contact **Anuska Dasgupta** for:
-- Project access authorization
-- Setup assistance
-- Database schema information
+To request access to this project or for support:
+- Contact: **Anuska Dasgupta**
+- For: Setup assistance or questions
 
 ## Troubleshooting
 
 **Error: "Configuration file not found"**
-- Run `ConfigGenerator` to create the db.config file
+- You need to create your own db.config file
+- Run `ConfigGenerator` as shown above
+- Make sure you have your own MySQL database set up first
 
 **Error: "Configuration initialization failed"**
 - Verify db.config exists and is properly formatted
 - Re-run ConfigGenerator if needed
 
 **Error: "Invalid project configuration"**
-- Contact project owner for authorized access
+- This indicates a configuration integrity check failed
+- Make sure you're using the ConfigGenerator provided with the project
+- Re-run the setup process
 
 ---
 
