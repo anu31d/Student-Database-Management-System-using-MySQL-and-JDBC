@@ -112,6 +112,88 @@
       </div>
     </section>
 
+    <section class="demo-section" id="demo">
+      <div class="section-heading">
+        <span class="eyebrow">Live demo</span>
+        <h2>Manage student records in the browser</h2>
+      </div>
+      <div class="demo-grid">
+        <form id="student-form" class="editor-card">
+          <div class="editor-header">
+            <div>
+              <h3 id="form-title">Add student record</h3>
+              <p>Records are stored in your browser so the demo works immediately after loading the page.</p>
+            </div>
+            <button class="button secondary small" type="button" id="reset-demo">Reset demo data</button>
+          </div>
+          <input type="hidden" id="record-id" />
+          <div class="field-grid">
+            <label>
+              <span>Roll number</span>
+              <input id="roll-no" type="number" min="1" required placeholder="101" />
+            </label>
+            <label>
+              <span>Student name</span>
+              <input id="student-name" type="text" required placeholder="Aisha Khan" />
+            </label>
+            <label>
+              <span>Section</span>
+              <input id="section" type="text" required placeholder="B" />
+            </label>
+            <label>
+              <span>Course</span>
+              <input id="course" type="text" required placeholder="BSc CS" />
+            </label>
+            <label>
+              <span>Department</span>
+              <input id="department" type="text" required placeholder="Computer Science" />
+            </label>
+            <label>
+              <span>Status</span>
+              <select id="status">
+                <option value="Active">Active</option>
+                <option value="On leave">On leave</option>
+                <option value="Graduated">Graduated</option>
+              </select>
+            </label>
+          </div>
+          <div class="editor-actions">
+            <button class="button primary" type="submit" id="save-record">Add record</button>
+            <button class="button secondary" type="button" id="cancel-edit">Cancel edit</button>
+          </div>
+        </form>
+
+        <div class="records-card">
+          <div class="records-header">
+            <div>
+              <h3>Current records</h3>
+              <p id="records-summary">Loading records...</p>
+            </div>
+            <label class="search-box">
+              <span>Search</span>
+              <input id="search-input" type="search" placeholder="Find a student" />
+            </label>
+          </div>
+          <div class="records-table-wrap">
+            <table class="records-table">
+              <thead>
+                <tr>
+                  <th>Roll</th>
+                  <th>Name</th>
+                  <th>Section</th>
+                  <th>Course</th>
+                  <th>Department</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="records-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="run-section" id="run">
       <div class="section-heading">
         <span class="eyebrow">Run anywhere</span>
@@ -124,5 +206,6 @@
       </div>
     </section>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>

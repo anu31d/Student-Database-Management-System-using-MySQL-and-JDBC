@@ -6,6 +6,7 @@ This repository is now a simple browser-based website prototype. It no longer de
 
 - Student, Teacher, and Management sections
 - A clean dashboard layout for presentation
+- A working student record demo with add, edit, delete, and search
 - Static HTML and CSS for easy sharing
 - An optional Java launcher that opens the page locally
 
@@ -14,6 +15,8 @@ This repository is now a simple browser-based website prototype. It no longer de
 1. Clone or download the repository.
 2. Open `index.html` in any browser.
 3. Optional: run `project/src/App.java` if you want the page to open automatically from Java.
+
+The live demo stores records in browser local storage, so added changes stay in that browser until you reset the sample data.
 
 ## How to publish as a website
 
