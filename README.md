@@ -23,9 +23,11 @@ The demo stores records in browser local storage, so changes stay in that browse
 1. Push the repository to GitHub.
 2. Open the repository settings.
 3. Go to `Settings` → `Pages`.
-4. Set the source to `GitHub Actions`.
-5. Push to `main`; the workflow will deploy the site automatically.
-6. Use the GitHub Pages URL as your public link.
+4. Set the source to `Deploy from a branch`.
+5. Select the `gh-pages` branch and the `/ (root)` folder.
+6. Save the settings.
+7. Push to `main`; the workflow will publish the site automatically.
+8. Use the GitHub Pages URL as your public link.
 
 ## Project files
 
