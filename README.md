@@ -40,6 +40,10 @@ The demo stores records in browser local storage, so changes stay in that browse
 
 - Repository link: source code on GitHub
 - GitHub Pages link: public website URL after deployment
+ 
+## Live site
+
+- https://anu31d.github.io/Student-Database-Management-System-using-MySQL-and-JDBC/
 
 
 
