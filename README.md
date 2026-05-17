@@ -42,8 +42,7 @@ The demo stores records in browser local storage, so changes stay in that browse
 
 ## Share links
 
-- Repository link: source code on GitHub
-- GitHub Pages link: public website URL after deployment
+- Repository link: source code on GitHub:
  
 ## Live site
 
