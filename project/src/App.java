@@ -6,16 +6,16 @@ import java.nio.file.Paths;
 public class App {
     public static void main(String[] args) {
         try {
-            Path indexHtml = locatePrototype();
+            Path indexHtml = locateIndexHtml();
 
             if (indexHtml == null) {
-                System.out.println("Prototype page not found. Open index.html from the repository root.");
+                System.out.println("Site page not found. Open index.html from the repository root.");
                 return;
             }
 
             if (Desktop.isDesktopSupported()) {
                 Desktop.getDesktop().browse(indexHtml.toUri());
-                System.out.println("Opened prototype: " + indexHtml.toAbsolutePath());
+                System.out.println("Opened site: " + indexHtml.toAbsolutePath());
             } else {
                 System.out.println("Desktop browsing is not supported on this machine.");
                 System.out.println("Open this file in your browser: " + indexHtml.toAbsolutePath());
@@ -25,7 +25,7 @@ public class App {
         }
     }
 
-    private static Path locatePrototype() {
+    private static Path locateIndexHtml() {
         Path[] candidates = new Path[] {
             Paths.get("..", "..", "index.html"),
             Paths.get("..", "index.html"),
