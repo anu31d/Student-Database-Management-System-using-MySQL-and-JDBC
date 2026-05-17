@@ -312,12 +312,6 @@ th {
   background: rgba(255,255,255,0.04);
 }
 
-.run-steps {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
 .demo-section {
   border-radius: calc(var(--radius) + 2px);
   padding: 28px 30px 30px;
@@ -488,6 +482,41 @@ th {
   color: var(--muted);
 }
 
+.tech-section {
+  border-radius: calc(var(--radius) + 2px);
+  padding: 28px 30px 30px;
+  margin-top: 20px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tech-card {
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.035);
+}
+
+.tech-card h3 {
+  margin: 0 0 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+}
+
+.tech-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .step {
   border-radius: 20px;
   padding: 20px;
@@ -514,8 +543,8 @@ th {
 @media (max-width: 980px) {
   .hero,
   .section-grid,
-  .run-steps,
-  .demo-grid {
+  .demo-grid,
+  .tech-grid {
     grid-template-columns: 1fr;
   }
 
@@ -531,9 +560,9 @@ th {
   }
 
   .data-section,
-  .run-section,
   .hero-panel,
-  .demo-section {
+  .demo-section,
+  .tech-section {
     padding: 20px;
   }
 
