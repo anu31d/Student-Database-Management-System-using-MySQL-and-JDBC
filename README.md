@@ -42,7 +42,7 @@ The demo stores records in browser local storage, so changes stay in that browse
 
 ## Share links
 
-- Repository link: source code on GitHub:
+- Repository link: source code on GitHub: https://github.com/anu31d/Student-Database-Management-System-using-MySQL-and-JDBC.git
  
 ## Live site
 
