@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Management System Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Browser prototype</span>
+        <h1>Student Management System</h1>
+        <p class="lede">
+          A clean browser-based prototype that replaces the console flow with a portable HTML dashboard.
+          Clone it, open it, and it runs on any machine with a browser.
+        </p>
+        <div class="cta-row">
+          <a class="button primary" href="#modules">View modules</a>
+          <a class="button secondary" href="#run">How to run</a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <div class="panel-card accent">
+          <span class="panel-label">Prototype status</span>
+          <strong>Ready to share</strong>
+          <p>No database setup, no private config, no machine-specific steps.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat"><span>3</span><p>Roles</p></div>
+          <div class="stat"><span>4</span><p>Core tables</p></div>
+          <div class="stat"><span>1</span><p>File to open</p></div>
+          <div class="stat"><span>0</span><p>Secrets required</p></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="modules" class="section-grid">
+      <article class="info-card">
+        <span class="card-tag student">Student</span>
+        <h2>Student Portal</h2>
+        <p>Shows personal details, academic data, and enrolled course information in a simple read-only view.</p>
+        <ul>
+          <li>Roll number lookup</li>
+          <li>Profile summary</li>
+          <li>Course overview</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <span class="card-tag teacher">Teacher</span>
+        <h2>Teacher Portal</h2>
+        <p>Highlights the management actions that were previously in the console menu, now displayed as cards.</p>
+        <ul>
+          <li>Add student records</li>
+          <li>Edit section details</li>
+          <li>Remove records</li>
+        </ul>
+      </article>
+      <article class="info-card">
+        <span class="card-tag management">Management</span>
+        <h2>Management Dashboard</h2>
+        <p>Summarizes the full system view so the prototype is easy to present and easy to fork.</p>
+        <ul>
+          <li>Student CRUD</li>
+          <li>Course CRUD</li>
+          <li>Teacher overview</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="data-section">
+      <div class="section-heading">
+        <span class="eyebrow">Data model</span>
+        <h2>What the prototype displays</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Module</th>
+              <th>Fields</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Students</td>
+              <td>Roll No, Name, Section, Course</td>
+              <td>Student identity and enrollment</td>
+            </tr>
+            <tr>
+              <td>Course</td>
+              <td>Course ID, Name, Duration, Credits</td>
+              <td>Academic structure</td>
+            </tr>
+            <tr>
+              <td>Teacher</td>
+              <td>Teacher ID, Name, Department, Experience</td>
+              <td>Faculty assignment</td>
+            </tr>
+            <tr>
+              <td>Reports</td>
+              <td>Counts, status, highlights</td>
+              <td>Presentation-friendly overview</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="run-section" id="run">
+      <div class="section-heading">
+        <span class="eyebrow">Run anywhere</span>
+        <h2>How to use this repository</h2>
+      </div>
+      <div class="run-steps">
+        <div class="step"><span>1</span><p>Download or clone the repository from GitHub.</p></div>
+        <div class="step"><span>2</span><p>Open <strong>index.html</strong> in any browser, or run the tiny Java launcher if you prefer.</p></div>
+        <div class="step"><span>3</span><p>Share the repo link or the GitHub Release link as your prototype link.</p></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
