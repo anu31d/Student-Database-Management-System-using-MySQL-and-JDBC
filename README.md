@@ -67,27 +67,7 @@ To get a copy and run the site locally:
 	java App
 	```
 
-## Can I delete the local folder?
-
-Yes — but only if you're sure all changes are pushed to GitHub. To verify from your local copy run:
-
-```powershell
-git status
-git rev-list --left-right --count origin/main...main
-git branch -r
-```
-
-- `git status` should show a clean working tree
-- the `rev-list` command above should print `0 0` meaning local `main` and `origin/main` are in sync
-- `git branch -r` should list `origin/main` and `origin/gh-pages`
-
-If those checks pass you can safely delete the local folder — you can always recover it later with:
-
-```bash
-git clone https://github.com/anu31d/Student-Database-Management-System-using-MySQL-and-JDBC.git
-```
-
-If you want, I can create a compressed archive (`zip`) of the current folder and add it to the repo releases before you delete the local copy.
+ 
 
 ## Project files
 
