@@ -4,6 +4,19 @@
 
 This repository is a browser-based Student Management System website that is easy to share, fork, and publish. It runs without private config files and includes a working student record demo in the browser.
 
+## Project description
+
+Designed and implemented a Java-based backend system to manage academic records using relational schema design and JDBC. Built role-based access control, executed secure CRUD operations, and implemented modular server-side workflows following OOP and system design fundamentals. The published site is a portable browser dashboard that demonstrates the core UI and CRUD flows using browser `localStorage` for demo persistence.
+
+## Tech stack
+
+- Java (optional local launcher and original backend implementation)
+- JDBC / SQL (relational schema design — original backend)
+- HTML & CSS (site layout and styling)
+- JavaScript (client-side CRUD and UI behavior)
+- Browser localStorage (demo persistence for the live site)
+- GitHub Pages (hosting)
+
 ## What’s included
 
 - Student, Teacher, and Management sections
@@ -19,17 +32,6 @@ This repository is a browser-based Student Management System website that is eas
 3. Optional: run `project/src/App.java` if you want the page to open automatically from Java.
 
 The demo stores records in browser local storage, so changes stay in that browser until you reset the sample data.
-
-## Publish on GitHub Pages
-
-1. Push the repository to GitHub.
-2. Open the repository settings.
-3. Go to `Settings` → `Pages`.
-4. Set the source to `Deploy from a branch`.
-5. Select the `gh-pages` branch and the `/ (root)` folder.
-6. Save the settings.
-7. Push to `main`; the workflow will publish the site automatically.
-8. Use the GitHub Pages URL as your public link.
 
 ## Project files
 
