@@ -33,6 +33,62 @@ Designed and implemented a Java-based backend system to manage academic records 
 
 The demo stores records in browser local storage, so changes stay in that browser until you reset the sample data.
 
+## Download & setup
+
+To get a copy and run the site locally:
+
+1. Clone the repository:
+
+	```bash
+	git clone https://github.com/anu31d/Student-Database-Management-System-using-MySQL-and-JDBC.git
+	cd "Student-Database-Management-System-using-MySQL-and-JDBC"
+	```
+
+2. Open the site in your browser by double-clicking `index.html`, or serve it over a local HTTP server (recommended):
+
+	- Using Python 3:
+
+	  ```bash
+	  python3 -m http.server 8000
+	  # then open http://localhost:8000 in your browser
+	  ```
+
+	- Using Node (http-server):
+
+	  ```bash
+	  npx http-server . -p 8080
+	  ```
+
+3. Optional Java launcher (opens the site in your default browser):
+
+	```bash
+	cd project/src
+	javac App.java
+	java App
+	```
+
+## Can I delete the local folder?
+
+Yes — but only if you're sure all changes are pushed to GitHub. To verify from your local copy run:
+
+```bash
+git status
+git rev-list --left-right --count origin/main...main
+git branch -r
+```
+
+- `git status` should show a clean working tree
+- the `rev-list` command above should print `0 0` meaning local `main` and `origin/main` are in sync
+- `git branch -r` should list `origin/main` and `origin/gh-pages`
+
+If those checks pass you can safely delete the local folder — you can always recover it later with:
+
+```bash
+git clone https://github.com/anu31d/Student-Database-Management-System-using-MySQL-and-JDBC.git
+```
+
+If you want, I can create a compressed archive (`zip`) of the current folder and add it to the repo releases before you delete the local copy.
+
 ## Project files
 
 - `index.html` — main website page
