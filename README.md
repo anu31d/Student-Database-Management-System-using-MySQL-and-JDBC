@@ -39,30 +39,30 @@ To get a copy and run the site locally:
 
 1. Clone the repository:
 
-	```bash
+	```powershell
 	git clone https://github.com/anu31d/Student-Database-Management-System-using-MySQL-and-JDBC.git
-	cd "Student-Database-Management-System-using-MySQL-and-JDBC"
+	Set-Location "Student-Database-Management-System-using-MySQL-and-JDBC"
 	```
 
 2. Open the site in your browser by double-clicking `index.html`, or serve it over a local HTTP server (recommended):
 
 	- Using Python 3:
 
-	  ```bash
-	  python3 -m http.server 8000
-	  # then open http://localhost:8000 in your browser
-	  ```
+	```powershell
+	python -m http.server 8000
+	# then open http://localhost:8000 in your browser
+	```
 
 	- Using Node (http-server):
 
-	  ```bash
-	  npx http-server . -p 8080
-	  ```
+	```powershell
+	npx http-server . -p 8080
+	```
 
 3. Optional Java launcher (opens the site in your default browser):
 
-	```bash
-	cd project/src
+	```powershell
+	Set-Location project\src
 	javac App.java
 	java App
 	```
@@ -71,7 +71,7 @@ To get a copy and run the site locally:
 
 Yes — but only if you're sure all changes are pushed to GitHub. To verify from your local copy run:
 
-```bash
+```powershell
 git status
 git rev-list --left-right --count origin/main...main
 git branch -r
