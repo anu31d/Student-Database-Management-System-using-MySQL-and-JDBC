@@ -1,5 +1,7 @@
 # Student Management System
 
+**Author:** anu31d
+
 This repository is a browser-based Student Management System website that is easy to share, fork, and publish. It runs without private config files and includes a working student record demo in the browser.
 
 ## What’s included
